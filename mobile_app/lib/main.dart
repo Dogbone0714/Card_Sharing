@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 import 'package:digital_business_card/screens/home_screen.dart';
 import 'package:digital_business_card/screens/qr_scanner_screen.dart';
 import 'package:digital_business_card/screens/profile_screen.dart';
@@ -45,6 +46,10 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: kIsWeb ? AppBar(
+        title: const Text('數位名片系統'),
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+      ) : null,
       body: _screens[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
