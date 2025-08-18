@@ -1,6 +1,6 @@
 class AppConfig {
   // API 配置
-  static const String apiBaseUrl = 'http://localhost:8000/api';
+  static const String apiBaseUrl = 'http://card-sharing.opennuu.com:8000/api';
   static const String apiVersion = 'v1';
   
   // 應用程式配置
@@ -9,8 +9,8 @@ class AppConfig {
   static const String appBuildNumber = '1';
   
   // 功能開關
-  static const bool enableAnalytics = false;
-  static const bool enableCrashReporting = false;
+  static const bool enableAnalytics = true;
+  static const bool enableCrashReporting = true;
   static const bool enablePushNotifications = false;
   
   // 超時配置
@@ -40,11 +40,11 @@ class AppConfig {
   
   // 測試配置
   static const bool enableTestMode = false;
-  static const String testApiUrl = 'http://localhost:8001/api';
+  static const String testApiUrl = 'http://card-sharing.opennuu.com:8001/api';
   
   // 生產環境配置
-  static const String productionApiUrl = 'https://api.yourdomain.com';
-  static const String productionWebUrl = 'https://yourdomain.com';
+  static const String productionApiUrl = 'https://api.card-sharing.opennuu.com.com';
+  static const String productionWebUrl = 'https://card-sharing.opennuu.com.com';
   
   // 第三方服務配置
   static const String googleMapsApiKey = '';
@@ -190,7 +190,7 @@ class AppConfig {
   // Web URL 獲取
   static String get webUrl {
     if (isProduction) return productionWebUrl;
-    return 'http://localhost:3000';
+    return 'http://card-sharing.opennuu.com:3000';
   }
   
   // 完整 API URL
