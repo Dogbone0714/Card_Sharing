@@ -1,0 +1,25 @@
+# 啟用重寫引擎
+RewriteEngine On
+
+# 設置重寫基礎路徑
+RewriteBase /
+
+# 允許直接訪問實際存在的文件
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^ - [L]
+
+# 允許直接訪問實際存在的目錄
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# 特殊處理：如果請求的是 public 目錄下的內容，直接轉發
+RewriteCond %{REQUEST_URI} ^/public/
+RewriteRule ^public/(.*)$ public/$1 [L]
+
+# 所有其他請求都轉發到 public/index.php
+RewriteRule ^(.*)$ public/index.php [QSA,L]
+
+# 如果重寫失敗，顯示錯誤信息
+ErrorDocument 500 "Laravel 應用錯誤，請檢查日誌文件"
+ErrorDocument 403 "訪問被拒絕，請檢查權限設置"
+ErrorDocument 404 "頁面未找到，請檢查路由配置"
